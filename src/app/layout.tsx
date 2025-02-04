@@ -1,7 +1,8 @@
-import Providers from "@/lib/providers";
-import GlobalStyles from "@/styles/global";
 import type { Metadata } from "next";
 import { Lato } from "next/font/google";
+
+import Providers from "@/lib/providers";
+import GlobalStyles from "@/styles/global";
 
 const lato = Lato({
   subsets: ["latin"], // Add subsets for the font

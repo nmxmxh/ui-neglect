@@ -1,9 +1,10 @@
 "use client";
 
-import styled from "styled-components";
-import { MainLayoutStyle } from "@/components/shared/main-layout";
 import { useState } from "react";
+import styled from "styled-components";
+
 import Box from "@/components/pages/box-model/box";
+import { MainLayoutStyle } from "@/components/shared/main-layout";
 
 export default function BoxModel() {
   const [showBorders, setShowBorders] = useState(false);

@@ -1,5 +1,3 @@
-import type { DefaultTheme } from "styled-components";
-
 export const RADIUS = {
   md: "8px",
   lg: "12px",

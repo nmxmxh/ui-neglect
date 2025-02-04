@@ -1,9 +1,10 @@
 "use client";
 
-import ArticleCard from "@/components/molecules/article-card";
-import { MainLayoutStyle } from "@/components/shared/main-layout";
 import Link from "next/link";
 import styled from "styled-components";
+
+import ArticleCard from "@/components/molecules/article-card";
+import { MainLayoutStyle } from "@/components/shared/main-layout";
 
 export default function Home() {
   return (
