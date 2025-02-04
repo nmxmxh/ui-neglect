@@ -2,14 +2,14 @@
 
 import { createGlobalStyle } from "styled-components";
 
-import { color, createCssProps, font } from "./helpers";
+import { createCssProps } from "./helpers";
 import { scrollBarLook } from "./scroll";
 import { FONT_SIZES, FONT_WEIGHTS, FONTS, RADIUS, SHADOWS } from "./themes";
 
 export const GlobalStyles = createGlobalStyle`
 :root {
   --width: 85%;
-  --max-percentage-width: 95%;
+  --max-percentage-width: 90%;
   --max-desktop-width: 1050px;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -18,7 +18,7 @@ export const GlobalStyles = createGlobalStyle`
   -webkit-text-size-adjust: 100%;
 
   /* Colors */
-  ${({ theme }) => createCssProps(theme.colors, "--color")}
+  /* ${({ theme }) => createCssProps(theme.colors, "--color")} */
 
   /* Font families */
   ${createCssProps(FONTS, "--ff")}
@@ -42,12 +42,12 @@ export const GlobalStyles = createGlobalStyle`
   }
 }
 
-* {
+/* * {
   -ms-user-select: none;
   -webkit-user-select: none;
   user-select: none;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
-}
+} */
 
 *,
 *:before,
@@ -56,14 +56,12 @@ export const GlobalStyles = createGlobalStyle`
   border: 0;
   padding: 0;
   margin: 0;
-  font-family: ${font("helvetica-neue")};
 }
 
 html,
 body {
   width: 100%;
   margin: 0;
-  background-color: ${color("primary-grey-600")};
   padding: 0;
   outline: none;
   

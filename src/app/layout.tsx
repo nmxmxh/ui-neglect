@@ -1,13 +1,13 @@
 import Providers from "@/lib/providers";
 import GlobalStyles from "@/styles/global";
 import type { Metadata } from "next";
-import { Atkinson_Hyperlegible } from "next/font/google";
+import { Lato } from "next/font/google";
 
-const atkinsonHyperlegible = Atkinson_Hyperlegible({
-  subsets: ["latin"], // Specify subsets to reduce font payload
-  weight: ["400", "700"], // Specify weights
-  style: ["normal", "italic"], // Include styles if needed
-  display: "swap", // Use `swap` for better loading behavior
+const lato = Lato({
+  subsets: ["latin"], // Add subsets for the font
+  weight: ["100", "300", "400", "700", "900"], // Include the desired weights
+  style: ["normal", "italic"], // Add italic style
+  display: "swap", // Use `swap` for better font loading behavior
 });
 
 export const metadata: Metadata = {
@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={atkinsonHyperlegible.className}>
+    <html lang="en" className={lato.className}>
       <Providers>
         <GlobalStyles />
         <body>{children}</body>
