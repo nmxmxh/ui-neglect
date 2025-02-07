@@ -6,11 +6,12 @@ export const MainLayoutStyle = {
     width: var(--width);
     margin: auto;
     padding-top: 80px;
+    padding-bottom: 250px;
 
     @media (max-width: 768px) {
       padding-top: 20px;
       width: var(--max-percentage-width);
-      margin-left: 8.5%;
+      margin-left: 6.5%;
     }
 
     h1 {

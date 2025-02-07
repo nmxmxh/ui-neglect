@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Lato } from "next/font/google";
 
+import { Footer } from "@/components/shared/footer";
 import Providers from "@/lib/providers";
 import GlobalStyles from "@/styles/global";
 
@@ -25,7 +26,10 @@ export default function RootLayout({
     <html lang="en" className={lato.className}>
       <Providers>
         <GlobalStyles />
-        <body>{children}</body>
+        <body>
+          {children}
+          <Footer />
+        </body>
       </Providers>
     </html>
   );
