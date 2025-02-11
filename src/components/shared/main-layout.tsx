@@ -26,8 +26,15 @@ export const MainLayoutStyle = {
       }
     }
 
+    ol {
+      margin: 10px 0;
+      padding: 5px 0;
+      margin-left: 25px;
+    }
+
     & > p,
-    section > p {
+    section > p,
+    li {
       font-size: 20px;
       max-width: 60%;
       color: grey;

@@ -42,12 +42,6 @@ export const GlobalStyles = createGlobalStyle`
   }
 }
 
-/* * {
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-} */
 
 *,
 *:before,
@@ -60,15 +54,14 @@ export const GlobalStyles = createGlobalStyle`
 
 html,
 body {
-  width: 100%;
+  width: 100vw;
   margin: 0;
   padding: 0;
   outline: none;
+  overflow-x: hidden;
   
   scroll-behavior: smooth !important;
   /* https://github.com/vercel/next.js/issues/51721 */
-
-  user-select: none;
   position: relative;
 
   ${scrollBarLook}
@@ -81,10 +74,6 @@ button {
   text-decoration: none;
   outline: none;
   -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
   -webkit-tap-highlight-color: transparent;
   background-color: transparent;
   font-size: inherit;

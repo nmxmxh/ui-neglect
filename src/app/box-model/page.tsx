@@ -9,58 +9,81 @@ import { useBox } from "@/lib/hooks/useBox";
 
 export default function BoxModel() {
   const { borderState, dispatchBorder, paddingState, marginState, dispatchPadding, dispatchMargin } = useBox();
-  console.log(marginState);
 
   return (
     <Style.Container $borders={borderState} $margins={marginState}>
       <section>
         <h1>What's in the Box? - The CSS Box Model</h1>
+        <h2>A Childhood Lesson in Boundaries</h2>
         <p>
-          As a kid, I remember bringing a fine art assignment home for the first time, holding my crayons and preparing
-          to do my best in delivering, obviously, a masterpiece.
+          As a kid, I remember bringing home my first fine art assignment, armed with crayons and determined to create,
+          obviously, a masterpiece.
         </p>
         <p>
-          The goal at the time was to color in a drawing, a task I tackled with all the ignorance and positive energy a
-          child could naively muster. Fortunately, I did a bad job.
+          The task was simple: color in a drawing. With all the ignorance and positive energy a child could muster, I
+          tackled it enthusiastically. Fortunately, I did a terrible job.
         </p>
         <p>
-          This became an avenue to learn an important life lesson from my mother at the time, she softly sat beside me
-          to tell me what has become one of the most important lessons I could learn in relation to art, tackling
-          drawing assignments & life in general.
+          This turned into an invaluable learning moment. My mother sat beside me and gently shared a lesson that has
+          stayed with me throughout my life, especially in my journey with art, design, and software development:
         </p>
         <p>"Be mindful of the lines, once you're colored them in, you can do anything you want inside them".</p>
+        <h2>Understanding CSS Through Boundaries</h2>
         <p>
-          There is no one size fits all to styling, CSS can be an amazingly complicated and complex language to manage,
-          but another honest truth is, for those who can see these lines and understand its foundational concepts, it
-          can also be very simple (and FUN!) to work with there are a hundred and one ways to do the same thing, but
-          you'll always be stuck if you don't have a eye for seeing and understanding the lines of the user interfaces
-          you are tasked to develop.
+          There is no one-size-fits-all approach to styling. CSS can be an incredibly complex language, yet it can also
+          be simple and fun for those who understand its foundational concepts. If you can see and respect the "lines"
+          of user interfaces, you’ll unlock the flexibility and power CSS offers.
         </p>
         <br />
         <p>
-          I've been using lines for a while, but other words to help you mentally model what I'm trying to explain would
-          be a boundary, a container, flesh (or skin), a body, a box.
+          When I refer to "lines," other words that might help you visualize this concept are boundaries, containers,
+          flesh (or skin), a body, or simply a box.
         </p>
         <p>
-          This is important, because this is also where the fun starts, you'll notice that these can all be capable of
-          movement, hold weight, be stacked on each other etc but mentally & visually, your first thought for organizing
-          interfaces would be the ability to mentally categorize what you're seeing into boxes.
+          This understanding is crucial because it sets the stage for organizing interfaces. These boxes can move,
+          stack, hold weight, and define structure, making it essential to develop an instinct for categorizing elements
+          into boxes.
         </p>
         <p>
-          To help you get a sense of what I've been yapping about,{" "}
+          To get a better sense of what I’ve been talking about,{" "}
           <button onClick={() => dispatchBorder({ type: "TOGGLE", key: "show" })}>
             <strong>click me</strong>
           </button>
         </p>
       </section>
       <section>
+        <p>Boxes, boxes everywhere.</p>
         <p>
-          Boxes, boxes everywhere, but this is just showing a title tag, with a few paragraph tags, contained to a
-          specified content to only fit a percentage width of the screen, that's not a good way for you to fully
-          understand what's happening.
+          At first glance, it may seem like just a title tag and a few paragraph tags, neatly confined within a content
+          block that takes up a percentage of the screen width. But that alone won’t give you the full picture of what’s
+          really happening inside the CSS Box Model.
         </p>
-        <p>So let's help you with a more visual & interactive model.</p>
+        <p>So, let’s take things a step further and explore a more visual and interactive representation.</p>
         <h2>Visualizing the Box Model</h2>
+        <p>At its core, the CSS Box Model consists of four key parts:</p>
+        <ol>
+          <li>
+            <strong>Content </strong>– The actual element, such as text, an image, or a button.
+          </li>
+          <li>
+            <strong>Padding </strong>– The space inside the element, creating breathing room between the content and the
+            border.
+          </li>
+          <li>
+            <strong>Border </strong>– The boundary defining the edge of the element, much like a fence.
+          </li>
+          <li>
+            <strong>Margin </strong>– The external space around the element, preventing it from feeling cramped.
+          </li>
+        </ol>
+        <h2>Padding: Giving Content Room to Breathe</h2>
+        <p>
+          Imagine your content as a modest home. The padding is the surrounding space—your lawn, patio, or play area.
+          This buffer creates visual balance and prevents elements from feeling too compressed.
+        </p>
+        <p>
+          <strong>Interactive Experiment</strong>
+        </p>
         <article>
           <Box
             $padding={paddingState}
@@ -70,17 +93,17 @@ export default function BoxModel() {
             boxId="initial"
           />
         </article>
-        <p>Here we have a box (div tag) with 4 bits of content (paragraph tags) within.</p>
+        <p>Here, we have a box (div tag) containing four pieces of content (paragraph tags).</p>
         <p>
-          Surrounding this content (box.) is a padding, a padding is essentially a section of space, fluff, you can add
-          either consistently or inconsistently to all{" "}
-          <button onClick={() => dispatchPadding({ type: "TOGGLE_PADDING", key: "all" })}>
-            <strong>sides</strong>
-          </button>{" "}
-          of your content.
+          Surrounding this box is <strong>padding</strong>—a space that gives breathing room to the content. Padding can
+          be applied consistently to all sides or customized for individual sides (top, right, bottom, left).
         </p>
         <p>
-          When we say sides, we usually talking about the{" "}
+          Click the options below to toggle between different padding states:{" "}
+          <button onClick={() => dispatchPadding({ type: "TOGGLE_PADDING", key: "all" })}>
+            <strong> All sides</strong>
+          </button>
+          (uniform padding) ,
           <button onClick={() => dispatchPadding({ type: "TOGGLE_PADDING", key: "top" })}>
             <strong>top</strong>
           </button>
@@ -93,53 +116,21 @@ export default function BoxModel() {
             <strong>left</strong>
           </button>{" "}
           and{" "}
-          <button onClick={() => dispatchPadding({ type: "TOGGLE_PADDING", key: "right" })}>
-            <strong>right</strong>
-          </button>{" "}
-          of your content.
-        </p>
-        <p>
-          Now, click the text for sides (and individuals too) above and see the transition between two states; a zero
-          state and a positive state.
-        </p>
-        <p>
-          It's usually three in relation to a lot of states (states are like possible conditions of an expected
-          behaviour), but negative states are ignored or treated as zero for paddings. A three state system is important
-          to take note of.
-        </p>
-        <p>
-          When it comes to creating interfaces, it is important to take note of <strong>positive</strong>,{" "}
-          <strong>zero</strong> & <strong>negative</strong> numbered values and also <strong>x</strong>,{" "}
-          <strong>y</strong> & <strong>z</strong> position values.
-        </p>
-        <p>Clicking those don't do anything, (for now).</p>
-        <p>
-          So you can essentially imagine (box.) here as the main content or building of our home, (well, modest home),
-          the padding or space around it can be the green area, a space that essentially allows our content breathe
-          within it's container, and then the boundary of our content is defined by a <strong>border</strong>.
-        </p>
-        <p>
-          A{" "}
-          <button onClick={() => dispatchBorder({ type: "TOGGLE", key: "show" })}>
-            <strong>border</strong>
-          </button>{" "}
-          can therefore be seen as the fence surrounding your content, you can circle it through a few{" "}
-          <button onClick={() => dispatchBorder({ type: "CHANGE_STROKE" })}>
-            <strong>styles</strong>
+          <button>
+            <strong> right</strong>
           </button>
-          , give it a bit of{" "}
-          <button onClick={() => dispatchBorder({ type: "TOGGLE", key: "showCurves" })}>
-            <strong>curve</strong>
-          </button>{" "}
-          (this works for specific sides too), maybe a little{" "}
-          <button onClick={() => dispatchBorder({ type: "CHANGE_COLOR" })}>
-            <strong>color</strong>
-          </button>
-          , totally not have to{" "}
-          <button onClick={() => dispatchBorder({ type: "TOGGLE", key: "show" })}>
-            <strong>show or display</strong>
-          </button>{" "}
-          it as part of your content etc
+        </p>
+        <p>By toggling these, you’ll notice how padding impacts the spacing inside the box.</p>
+        <p>
+          <strong>NOTE:</strong> Negative paddings don't exist so they automatically default to 0.
+        </p>
+        <h2>Borders: The Frame of Your Elements</h2>
+        <p>
+          A border is like a fence around your house. It defines where your element begins and ends. You can style it
+          with different widths, colors, and rounded corners to add visual interest.
+        </p>
+        <p>
+          <strong>Interactive Experiment</strong>
         </p>
         <article>
           <Box
@@ -150,83 +141,97 @@ export default function BoxModel() {
             boxId="border"
           />
         </article>
-        <p>like an actual fence.</p>
+        <p>Click below to see how different border styles affect the box:</p>
         <p>
-          We can now look at borders as the lines, or frame of our content. This determines the limit of your content's
-          area of influence. This can become very important when we look into working with overflows.
+          We have{" "}
+          <button onClick={() => dispatchBorder({ type: "TOGGLE", key: "show" })}>
+            <strong>borders</strong>
+          </button>{" "}
+          to define the element's boundary,{" "}
+          <button onClick={() => dispatchBorder({ type: "CHANGE_STROKE" })}>
+            <strong>stroke</strong>
+          </button>{" "}
+          to adjust the thickness or style,{" "}
+          <button onClick={() => dispatchBorder({ type: "CHANGE_COLOR" })}>
+            <strong>color</strong>
+          </button>{" "}
+          to modify its appearance, and{" "}
+          <button onClick={() => dispatchBorder({ type: "TOGGLE", key: "showCurves" })}>
+            <strong>border-radius</strong>
+          </button>{" "}
+          to introduce curves and soften the edges.
+        </p>
+        <h2>Margins: External Spacing for Balance</h2>
+        <p>
+          Your margin is the empty space surrounding your element. If your house had no margin, it would be built right
+          up against the next one, creating a cramped and uncomfortable space.
         </p>
         <p>
-          Everything you will use in creating great user interfaces, buttons, cards, inputs, modals etc, is dependent on
-          a solid grasp on how your content works, the space of your paddings, the definition of your borders and
-          eventually margins, the surrounding external space of your content.{" "}
+          Margins create separation between elements, ensuring a well-structured layout. A fascinating aspect of margins
+          is margin collapsing, where adjacent margins can merge into a single margin, reducing unnecessary spacing.
         </p>
         <p>
-          One of my favorite concepts in computer science is abstraction; in simplest terms, it is the ability to hide
-          complexity. Imagine trying to develop a city from the ground up, getting the different architectural schemas,
-          timelines, people and a whole lot of other things, that is a lot to think about, and a lot to manage.
+          <strong>Interactive Experiment</strong>
         </p>
         <p>
-          Now, the thing is, a city is a compilation of less structured systems, structures and at it's base level
-          buildings. While it might be incredibly complex to understand developing a city, it's easier to understand
-          constructing a single building, and though the insides, functionality and properties may vary, the still
-          follow the same major concepts. When you proceed to combine a lot of these together, you get your city.
-        </p>
-        <p>
-          So whilst you've temporarily ignored the complexity of developing a city, by slowly constructing your smaller
-          buildings and putting them together (like Legos 😅), you've ignored the complexity of the city and created an
-          amazing collection of buildings (you might call that a city too). This is the same for creating dense and
-          attractive user interfaces, by paying attention to the details and pecularities of your single boxes, you can
-          create an amazing combined experience.
-        </p>
-        <p>
-          Once again, let's look at our content, padding and border but with the analogy of looking at our box model
-          like a building. In this scenario let's imagine a group of buildings in an estate, you can also mentally note
-          how the relationship between buildings and the space around them can signify the sophistry of the residents
-          (so space is important!).
-        </p>
-        <p>
-          Your <strong>building</strong> itself = the <strong>content</strong> (text, image, symbol etc).
-        </p>
-        <p>
-          The <strong>interior space</strong> between the walls & your fences, this can contain your lawn, grill, the
-          space you can play around with = the <strong>padding</strong>.
-        </p>
-        <p>
-          Your <strong>fence</strong>, the definition of the boundary of your building, the lines your property should
-          not (but can) cross = the <strong>border</strong>.
-        </p>
-        <p>
-          Now your area of influence has essentially ended, but you want to leave a boundary of space, maybe for
-          aesthetic reasons, for your privacy or it's just your influence flexing. You can add a layer of exterior space
-          around the definition of your area of influence (content + padding + border). This is your{" "}
-          <strong>margin</strong>.
-        </p>
-        <p>
-          If a building has no margin (no exterior space around it), you can sense how this would make your buildings
-          feel cramped.
-        </p>
-        <p>
-          The <strong>exterior space</strong> around your buildings = the{" "}
+          Click{" "}
           <button onClick={() => dispatchMargin({ type: "TOGGLE_MARGIN", key: "show" })}>
             <strong>margin</strong>
-          </button>
-          .
+          </button>{" "}
+          to see how we work with the separation, especially in a document like this.
         </p>
-        <p>Yes, you can click margin now.</p>
         <article className="with-margin">
           <Box $padding={paddingState} $margins={marginState} $borders={borderState} boxId="initial" />
           <div className="margin-block"></div>
         </article>
         <p>
-          FUN FACT. While working on this, I learnt about collapsing margins. Essentially, in CSS, the adjoining margins
-          of two or more boxes can combine to form a single margin, margins that form this way are said to collapse. The
-          answer also further elaborates that margins aren't about sizing the box, but giving it breathing room.{" "}
+          <strong>FUN FACT: Margin Collapsing</strong>
         </p>
-        <p>If you look closely, you can see the different shades of margins merge into each other.</p>
         <p>
-          It's also important to note you cannot directly add color to margins or paddings, borders can be colored, I
-          can achieve these feats by using pseudo elements to mimic said behaviours and characteristics I'm trying to
-          achieve.
+          While working on this, I learned about collapsing margins. In CSS, when two margins from adjacent elements
+          meet, they can combine into a single margin rather than stacking. This means margins aren't about sizing the
+          box, but about giving it breathing room.
+        </p>
+        <p>If you look closely, you can see the different shades of margins merging into each other.</p>
+        <p>
+          It's important to note that you cannot directly add color to margins or paddings. Borders, however, can be
+          colored. To mimic these effects, you can use pseudo-elements like ::before and ::after to create visual
+          illusions of colored margins and paddings.
+        </p>
+        <h2>Abstraction: From Single Boxes to Complex Interfaces</h2>
+        <p>
+          One of my favorite concepts in computer science is abstraction—hiding complexity to focus on simpler, more
+          manageable components.
+        </p>
+        <p>
+          Think of building a city from scratch. It involves designing roads, skyscrapers, houses, public spaces, and
+          infrastructure—a daunting task. But if you break it down into individual buildings, each following similar
+          principles, the process becomes more manageable.
+        </p>
+        <p>
+          Similarly, when designing complex UI layouts, the key is mastering how individual boxes (elements) interact.
+          By understanding how content, padding, borders, and margins work together, you can construct visually
+          appealing and functional designs, one component at a time.
+        </p>
+        <p>
+          Modern UI frameworks like React, Vue, and Angular rely heavily on the principles of the Box Model when
+          structuring reusable components. Grasping these fundamentals will help you build more maintainable and
+          visually consistent user interfaces.
+        </p>
+        <h2>Conclusion: Seeing the Lines, Mastering the Art</h2>
+        <p>
+          CSS is both an art and a science. While there are countless ways to achieve the same visual result, your
+          ability to see and respect the boundaries of elements will determine your success in creating structured,
+          responsive, and aesthetically pleasing interfaces.
+        </p>
+        <p>
+          Every button, card, input field, and modal follows the principles of the <strong>CSS Box Model</strong>.
+          Mastering it will not only improve your ability to style elements but will also give you a deeper appreciation
+          for how digital interfaces are constructed.
+        </p>
+        <p>
+          So, the next time you design a webpage, remember:{" "}
+          <strong>Be mindful of the lines. Once you've defined them, you can do anything you want inside them.</strong>
         </p>
       </section>
     </Style.Container>
@@ -268,22 +273,25 @@ const Style = {
     h1,
     h2,
     p,
-    strong {
+    strong,
+    li,
+    ol {
       transition: border 0.25s ease-in;
       border: 1px ${({ $borders }) => ($borders.show ? `${$borders.stroke} ${$borders.color}` : "solid transparent")};
       border-radius: ${({ $borders }) => ($borders.showCurves ? "4px" : "0px")};
       position: relative;
+      height: max-content;
 
-      &::after {
+      &::before {
         content: "";
         position: absolute;
-        height: 100%;
-        width: 100%;
+        height: calc(100% + 2px);
+        width: calc(100% + 2px);
         border: 1px ${({ $borders }) => ($borders.show ? `${$borders.stroke} ${$borders.color}` : "solid transparent")};
         border-radius: ${({ $borders }) => ($borders.showCurves ? "4px" : "0px")};
         transition: border 0.25s ease-in;
-        top: -2px;
-        right: -2px;
+        top: -3px;
+        right: -3px;
         z-index: 1;
         opacity: 0.25;
       }
@@ -311,11 +319,13 @@ const Style = {
     section > h2 {
       font-weight: 600;
       font-style: normal;
-      font-size: 28px;
-      margin: 25px 0;
+      font-size: 24px;
+      margin: 15px 0;
+      color: rgba(0, 0, 0, 0.65);
+      position: relative;
 
       &::after {
-        height: 25px;
+        height: 15px;
         width: 100%;
         background-color: ${({ $margins }) => ($margins.show ? "rgba(255, 71, 76, 0.25)" : "rgba(255, 71, 76, 0)")};
         top: 100%;
@@ -323,17 +333,19 @@ const Style = {
         position: absolute;
         opacity: 0.5;
         transition: background-color 0.25s ease-in;
-      }
+        left: 0;
 
-      &::before {
-        height: 25px;
-        width: 100%;
-        top: -25px;
-        background-color: ${({ $margins }) => ($margins.show ? "rgba(255, 71, 76, 0.25)" : "rgba(255, 71, 76, 0)")};
-        content: "";
-        position: absolute;
-        opacity: 0.5;
-        transition: background-color 0.25s ease-in;
+        &::before {
+          height: 15px;
+          width: 100%;
+          top: -15px;
+          background-color: ${({ $margins }) => ($margins.show ? "rgba(255, 71, 76, 0.25)" : "rgba(255, 71, 76, 0)")};
+          content: "";
+          position: absolute;
+          opacity: 0.5;
+          transition: background-color 0.25s ease-in;
+          left: 0;
+        }
       }
 
       @media (max-width: 768px) {
@@ -342,7 +354,32 @@ const Style = {
       }
     }
 
-    p {
+    section > ol {
+      &::after {
+        height: 15px;
+        width: 100%;
+        background-color: ${({ $margins }) => ($margins.show ? "rgba(255, 71, 76, 0.25)" : "rgba(255, 71, 76, 0)")};
+        top: 100%;
+        content: "";
+        position: absolute;
+        opacity: 0.5;
+        transition: background-color 0.25s ease-in;
+
+        &::before {
+          height: 15px;
+          width: 100%;
+          top: -15px;
+          background-color: ${({ $margins }) => ($margins.show ? "rgba(255, 71, 76, 0.25)" : "rgba(255, 71, 76, 0)")};
+          content: "";
+          position: absolute;
+          opacity: 0.5;
+          transition: background-color 0.25s ease-in;
+        }
+      }
+    }
+
+    p,
+    li {
       margin-bottom: 10px;
 
       &::after {
@@ -353,6 +390,7 @@ const Style = {
         content: "";
         position: absolute;
         transition: background-color 0.25s ease-in;
+        left: 0;
       }
     }
   `,
