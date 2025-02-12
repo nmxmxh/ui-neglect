@@ -27,7 +27,12 @@ export default function BoxModel() {
           This turned into an invaluable learning moment. My mother sat beside me and gently shared a lesson that has
           stayed with me throughout my life, especially in my journey with art, design, and software development:
         </p>
-        <p>"Be mindful of the lines, once you're colored them in, you can do anything you want inside them".</p>
+        <p>
+          <strong>
+            "Be mindful of the lines, once you're colored them in, you can do anything you want inside them"
+          </strong>
+          .
+        </p>
         <h2>Understanding CSS Through Boundaries</h2>
         <p>
           There is no one-size-fits-all approach to styling. CSS can be an incredibly complex language, yet it can also
@@ -116,7 +121,7 @@ export default function BoxModel() {
             <strong>left</strong>
           </button>{" "}
           and{" "}
-          <button>
+          <button onClick={() => dispatchPadding({ type: "TOGGLE_PADDING", key: "right" })}>
             <strong> right</strong>
           </button>
         </p>

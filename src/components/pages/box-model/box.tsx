@@ -100,7 +100,8 @@ const Style = {
       top: ${({ $margins }) => getMarginTop($margins)};
       left: ${({ $margins }) => getMarginSide($margins)};
       transition: all 0.25s linear;
-      background-color: ${({ $noShowMargin }) => (!$noShowMargin ? "rgba(255, 71, 76, 0.25)" : "rgba(255, 71, 76, 0)")};
+      background-color: ${({ $noShowMargin, $margins }) =>
+        !$noShowMargin && $margins.show ? "rgba(255, 71, 76, 0.25)" : "rgba(255, 71, 76, 0)"};
       transition: background-color 0.25s linear;
       box-sizing: content-box;
     }
